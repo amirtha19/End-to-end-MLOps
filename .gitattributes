@@ -1,0 +1,5 @@
+mlruns filter=lfs diff=lfs merge=lfs -text
+mlartifacts filter=lfs diff=lfs merge=lfs -text
+mlruns/*/artifacts/**/*.pkl filter=lfs diff=lfs merge=lfs -text
+mlruns/**/*.pkl filter=lfs diff=lfs merge=lfs -text
+mlartifact/**/*.pkl filter=lfs diff=lfs merge=lfs -text
