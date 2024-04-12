@@ -4,14 +4,14 @@ import pandas as pd
 from src.components.mlpro.exception import CustomException
 from src.components.mlpro.utils import load_object
 import mlflow
-from .model_evaluation import find_best_runs
+from src.components.mlpro.model_evalution import find_best_runs
 class PredictPipeline:
     def __init__(self):
         pass
 
     def predict(self,features):
         try:
-            model_uri = 'runs:/494f468a58b548da8e49cbedf9752c3d/model'
+            model_uri = find_best_runs()
             model = mlflow.pyfunc.load_model(model_uri)
             preprocessor_path = os.path.join('artifacts', 'preprocessor.pkl')
             print("Before Loading")

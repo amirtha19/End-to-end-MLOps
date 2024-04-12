@@ -4,14 +4,14 @@ import sys
 import os
 from mlflow.entities import ViewType
 from sklearn.metrics import accuracy_score
-from mlpro.exception import CustomException
-MLFLOW_TRACKING_URI = "mlruns"
-mlflow.set_tracking_uri("mlruns")
+from .exception import CustomException
+MLFLOW_TRACKING_URI = "mlartifacts"
+mlflow.set_tracking_uri("mlartifacts")
 client = MlflowClient(tracking_uri=MLFLOW_TRACKING_URI)
 client.search_experiments()
 experiments = client.search_experiments()
 experiment_list = [exp for exp in experiments]
-print(experiment_list)
+
 import dill
 import pickle
 def test_model(name, stage, X_test, y_test):
