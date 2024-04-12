@@ -1,6 +1,6 @@
 # End-to-end Machine Learning Project
 
-This project demonstrates an end-to-end machine learning pipeline, including data ingestion and a machine learning application.
+This project demonstrates an end-to-end machine learning pipeline, including data ingestion and a machine learning application to predict the customers for term deposit campaign.
 
 ## Setup
 
