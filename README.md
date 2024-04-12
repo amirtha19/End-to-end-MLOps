@@ -6,7 +6,7 @@ This project demonstrates an end-to-end machine learning pipeline, including dat
 
 1. **Clone the repository:**
     ```bash
-    git clone 
+    git clone https://github.com/amirtha19/End-to-end-Machine-learning.git
     ```
 
 2. **Install dependencies:**
@@ -17,11 +17,6 @@ This project demonstrates an end-to-end machine learning pipeline, including dat
 3. **Start the MLflow backend server:**
     ```bash
     mlflow server --backend-store-uri mlruns --default-artifact-root mlruns
-    ```
-
-4. **Start the MLflow artifact server** (in another command prompt or terminal window):
-    ```bash
-    mlflow artifacts serve --backend-store-uri mlruns --default-artifact-root mlruns
     ```
 
 ## Usage
