@@ -1,6 +1,7 @@
 import os
 import sys
 import mlflow
+
 from dataclasses import dataclass
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier, AdaBoostClassifier
 from sklearn.tree import DecisionTreeClassifier
@@ -15,8 +16,8 @@ mlflow.set_tracking_uri("http://127.0.0.1:5000")
 from mlpro.exception import CustomException
 from mlpro.logger import logging
 
-from mlpro.utils import save_object,evaluate_models
-
+from mlpro.utils import evaluate_models
+from mlpro.model_evalution import save_object,find_best_runs
 @dataclass
 class ModelTrainerConfig:
     trained_model_file_path=os.path.join("artifacts","model.pkl")
@@ -68,14 +69,15 @@ class ModelTrainer:
             best_model_name = max(model_report, key=lambda x: model_report[x]['recall'])
             best_model = models[best_model_name]
             accuracy = model_report[best_model_name]["accuracy"]
+            obj = find_best_runs()
             
 
-            logging.info(f"Best found model on both training and testing dataset - {best_model} with {model_report[best_model_name]['accuracy']}")
+            logging.info(f"Best found model on both training and testing dataset - {best_model} with {model_report[best_model_name]['accuracy']} and {model_report[best_model_name]['recall']}")
 
             # Save the best model
             save_object(
                 file_path=self.model_trainer_config.trained_model_file_path,
-                obj=best_model
+                obj = obj
             )
 
             # Return accuracy

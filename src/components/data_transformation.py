@@ -11,7 +11,7 @@ from mlpro.exception import CustomException
 from mlpro.logger import logging
 import os
 
-from mlpro.utils import save_object
+from mlpro.model_evalution import save_object
 
 @dataclass
 class DataTransformationConfig:
